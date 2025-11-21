@@ -1,0 +1,24 @@
+Laboratory 7 – Product Inventory Management API
+       
+1. POST Endpoint URL:
+- Read all products:
+curl http://localhost:8080/api/products
+[{"id":1,"name":"Laptop Pro","price":55000.0},{"id":2,"name":"Mechanical Keyboard","price":2500.0},{"id":3,"name":"Gaming Mouse","price":1200.0}]
+    - Read one product by ID:
+curl http://localhost:8080/api/products/1
+{"id":1,"name":"Laptop Pro","price":55000.0}
+- POST a products:
+curl -X POST http://localhost:8080/api/products ^
+More?   -H "Content-Type: application/json" ^
+More?   -d "{\"name\":\"Gaming Mouse\",\"price\":79.99}"
+{"id":4,"name":"Gaming Mouse","price":79.99}
+- PUT one  products:
+curl -X PUT http://localhost:8080/api/products/1 ^
+More?   -H "Content-Type: application/json" ^
+More?   -d "{\"name\":\"Laptop Ultra\",\"price\":1999.99}"
+{"id":1,"name":"Laptop Ultra","price":1999.99}
+- Delete a products:
+curl -X DELETE http://localhost:8080/api/products/1
+
+2. GET by ID (non-existent item):
+curl http://localhost:8080/api/products/999
